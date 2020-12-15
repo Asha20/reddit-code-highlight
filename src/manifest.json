@@ -8,7 +8,8 @@
 	"content_scripts": [
 		{
 			"matches": ["*://*.reddit.com/r/*"],
-			"js": ["vendor/prism.js", "content_scripts/index.js"]
+			"js": ["content_scripts/index.js"],
+			"css": ["vendor/prism.css", "content_scripts/index.css"]
 		}
 	]
 }

@@ -8,10 +8,7 @@ const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const babelOptions = {
 	presets: [
-		[
-			"@babel/preset-env",
-			{ targets: "defaults", useBuiltIns: "usage", corejs: 3 },
-		],
+		["@babel/preset-env", { targets: "defaults" }],
 		["@babel/preset-typescript"],
 	],
 };
@@ -54,7 +51,11 @@ module.exports = function (_, argv) {
 			new CopyWebpackPlugin({
 				patterns: [
 					{ from: "src/manifest.json", to: "manifest.json" },
-					{ from: "src/vendor", to: "vendor" },
+					{ from: "src/vendor/prism.css", to: "vendor/prism.css" },
+					{
+						from: "src/content_scripts/index.css",
+						to: "content_scripts/index.css",
+					},
 				],
 			}),
 
