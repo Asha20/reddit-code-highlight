@@ -7,7 +7,7 @@
 
 	"content_scripts": [
 		{
-			"matches": ["*://*.reddit.com/r/*"],
+			"matches": ["*://*.reddit.com/*"],
 			"js": ["content_scripts/index.js"],
 			"css": ["vendor/prism.css", "content_scripts/index.css"]
 		}

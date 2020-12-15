@@ -33,6 +33,12 @@ export class Dropdown<T> {
 	}
 
 	select(predicate: (x: T) => boolean): void {
+		if (predicate(this.selected())) {
+			return;
+		}
+
+		console.log("hi");
+
 		const index = this.items.findIndex(predicate);
 		if (index > -1) {
 			this.element.selectedIndex = index;

@@ -1,3 +1,13 @@
 pre.rch-visited {
 	display: block !important;
 }
+
+/* Undoes some styles from old.reddit.com */
+.arrow {
+	display: inline !important;
+	cursor: unset !important;
+}
+
+.comment {
+	margin-left: 0 !important;
+}
