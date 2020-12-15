@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+	"name": "Reddit Code Highlight",
+	"version": "0.0.0",
+
+	"description": "Applies syntax highlighting to code blocks on Reddit.",
+
+	"content_scripts": [
+		{
+			"matches": ["*://*.reddit.com/r/*"],
+			"js": ["content_scripts/index.js"]
+		}
+	]
+}

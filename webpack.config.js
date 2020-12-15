@@ -3,6 +3,7 @@
 const path = require("path");
 const { DefinePlugin } = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 const babelOptions = {
@@ -22,7 +23,9 @@ module.exports = function (_, argv) {
 		context: path.resolve(__dirname),
 		stats: production ? "normal" : "minimal",
 		mode: production ? "production" : "development",
-		entry: "./src/main.ts",
+		entry: {
+			"content_scripts/index": "./src/content_scripts/index.ts",
+		},
 		output: {
 			path: path.resolve(__dirname, "dist"),
 			filename: "[name].js",
@@ -47,6 +50,11 @@ module.exports = function (_, argv) {
 			new DefinePlugin({
 				PRODUCTION: JSON.stringify(production),
 			}),
+
+			new CopyWebpackPlugin({
+				patterns: [{ from: "src/manifest.json", to: "manifest.json" }],
+			}),
+
 			new ForkTsCheckerWebpackPlugin({
 				typescript: {
 					diagnosticOptions: {
