@@ -37,8 +37,6 @@ export class Dropdown<T> {
 			return;
 		}
 
-		console.log("hi");
-
 		const index = this.items.findIndex(predicate);
 		if (index > -1) {
 			this.element.selectedIndex = index;

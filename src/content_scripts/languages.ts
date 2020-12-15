@@ -243,243 +243,961 @@ export interface Language {
 	name: string;
 }
 
-export const languages: Language[] = [
-	{ name: "Plain Text", lang: "none" },
-	{ name: "Markup", lang: "markup" },
-	{ name: "CSS", lang: "css" },
-	{ name: "C-like", lang: "clike" },
-	{ name: "JavaScript", lang: "javascript" },
-	{ name: "ABAP", lang: "abap" },
-	{ name: "ABNF", lang: "abnf" },
-	{ name: "ActionScript", lang: "actionscript" },
-	{ name: "Ada", lang: "ada" },
-	{ name: "Agda", lang: "agda" },
-	{ name: "AL", lang: "al" },
-	{ name: "ANTLR4", lang: "antlr4" },
-	{ name: "Apache Configuration", lang: "apacheconf" },
-	{ name: "Apex", lang: "apex" },
-	{ name: "APL", lang: "apl" },
-	{ name: "AppleScript", lang: "applescript" },
-	{ name: "AQL", lang: "aql" },
-	{ name: "Arduino", lang: "arduino" },
-	{ name: "ARFF", lang: "arff" },
-	{ name: "AsciiDoc", lang: "asciidoc" },
-	{ name: "ASP.NET (C#)", lang: "aspnet" },
-	{ name: "6502 Assembly", lang: "asm6502" },
-	{ name: "AutoHotkey", lang: "autohotkey" },
-	{ name: "AutoIt", lang: "autoit" },
-	{ name: "Bash", lang: "bash" },
-	{ name: "BASIC", lang: "basic" },
-	{ name: "Batch", lang: "batch" },
-	{ name: "BBcode", lang: "bbcode" },
-	{ name: "Birb", lang: "birb" },
-	{ name: "Bison", lang: "bison" },
-	{ name: "BNF", lang: "bnf" },
-	{ name: "Brainfuck", lang: "brainfuck" },
-	{ name: "BrightScript", lang: "brightscript" },
-	{ name: "Bro", lang: "bro" },
-	{ name: "BSL (1C:Enterprise)", lang: "bsl" },
-	{ name: "C", lang: "c" },
-	{ name: "C#", lang: "csharp" },
-	{ name: "C++", lang: "cpp" },
-	{ name: "CIL", lang: "cil" },
-	{ name: "Clojure", lang: "clojure" },
-	{ name: "CMake", lang: "cmake" },
-	{ name: "CoffeeScript", lang: "coffeescript" },
-	{ name: "Concurnas", lang: "concurnas" },
-	{ name: "Content-Security-Policy", lang: "csp" },
-	{ name: "Crystal", lang: "crystal" },
-	{ name: "CSS Extras", lang: "css-extras" },
-	{ name: "Cypher", lang: "cypher" },
-	{ name: "D", lang: "d" },
-	{ name: "Dart", lang: "dart" },
-	{ name: "DataWeave", lang: "dataweave" },
-	{ name: "DAX", lang: "dax" },
-	{ name: "Dhall", lang: "dhall" },
-	{ name: "Diff", lang: "diff" },
-	{ name: "Django/Jinja2", lang: "django" },
-	{ name: "DNS zone file", lang: "dns-zone-file" },
-	{ name: "Docker", lang: "docker" },
-	{ name: "EBNF", lang: "ebnf" },
-	{ name: "EditorConfig", lang: "editorconfig" },
-	{ name: "Eiffel", lang: "eiffel" },
-	{ name: "EJS", lang: "ejs" },
-	{ name: "Elixir", lang: "elixir" },
-	{ name: "Elm", lang: "elm" },
-	{ name: "Embedded Lua templating", lang: "etlua" },
-	{ name: "ERB", lang: "erb" },
-	{ name: "Erlang", lang: "erlang" },
-	{ name: "Excel Formula", lang: "excel-formula" },
-	{ name: "F#", lang: "fsharp" },
-	{ name: "Factor", lang: "factor" },
-	{ name: "Firestore security rules", lang: "firestore-security-rules" },
-	{ name: "Flow", lang: "flow" },
-	{ name: "Fortran", lang: "fortran" },
-	{ name: "FreeMarker Template Language", lang: "ftl" },
-	{ name: "GameMaker Language", lang: "gml" },
-	{ name: "G-code", lang: "gcode" },
-	{ name: "GDScript", lang: "gdscript" },
-	{ name: "GEDCOM", lang: "gedcom" },
-	{ name: "Gherkin", lang: "gherkin" },
-	{ name: "Git", lang: "git" },
-	{ name: "GLSL", lang: "glsl" },
-	{ name: "Go", lang: "go" },
-	{ name: "GraphQL", lang: "graphql" },
-	{ name: "Groovy", lang: "groovy" },
-	{ name: "Haml", lang: "haml" },
-	{ name: "Handlebars", lang: "handlebars" },
-	{ name: "Haskell", lang: "haskell" },
-	{ name: "Haxe", lang: "haxe" },
-	{ name: "HCL", lang: "hcl" },
-	{ name: "HLSL", lang: "hlsl" },
-	{ name: "HTTP", lang: "http" },
-	{ name: "HTTP Public-Key-Pins", lang: "hpkp" },
-	{ name: "HTTP Strict-Transport-Security", lang: "hsts" },
-	{ name: "IchigoJam", lang: "ichigojam" },
-	{ name: "Icon", lang: "icon" },
-	{ name: ".ignore", lang: "ignore" },
-	{ name: "Inform 7", lang: "inform7" },
-	{ name: "Ini", lang: "ini" },
-	{ name: "Io", lang: "io" },
-	{ name: "J", lang: "j" },
-	{ name: "Java", lang: "java" },
-	{ name: "JavaDoc", lang: "javadoc" },
-	{ name: "JavaDoc-like", lang: "javadoclike" },
-	{ name: "Java stack trace", lang: "javastacktrace" },
-	{ name: "Jolie", lang: "jolie" },
-	{ name: "JQ", lang: "jq" },
-	{ name: "JSDoc", lang: "jsdoc" },
-	{ name: "JS Extras", lang: "js-extras" },
-	{ name: "JSON", lang: "json" },
-	{ name: "JSON5", lang: "json5" },
-	{ name: "JSONP", lang: "jsonp" },
-	{ name: "JS stack trace", lang: "jsstacktrace" },
-	{ name: "JS Templates", lang: "js-templates" },
-	{ name: "Julia", lang: "julia" },
-	{ name: "Keyman", lang: "keyman" },
-	{ name: "Kotlin", lang: "kotlin" },
-	{ name: "LaTeX", lang: "latex" },
-	{ name: "Latte", lang: "latte" },
-	{ name: "Less", lang: "less" },
-	{ name: "LilyPond", lang: "lilypond" },
-	{ name: "Liquid", lang: "liquid" },
-	{ name: "Lisp", lang: "lisp" },
-	{ name: "LiveScript", lang: "livescript" },
-	{ name: "LLVM IR", lang: "llvm" },
-	{ name: "LOLCODE", lang: "lolcode" },
-	{ name: "Lua", lang: "lua" },
-	{ name: "Makefile", lang: "makefile" },
-	{ name: "Markdown", lang: "markdown" },
-	{ name: "Markup templating", lang: "markup-templating" },
-	{ name: "MATLAB", lang: "matlab" },
-	{ name: "MEL", lang: "mel" },
-	{ name: "Mizar", lang: "mizar" },
-	{ name: "MongoDB", lang: "mongodb" },
-	{ name: "Monkey", lang: "monkey" },
-	{ name: "MoonScript", lang: "moonscript" },
-	{ name: "N1QL", lang: "n1ql" },
-	{ name: "N4JS", lang: "n4js" },
-	{ name: "Nand To Tetris HDL", lang: "nand2tetris-hdl" },
-	{ name: "Naninovel Script", lang: "naniscript" },
-	{ name: "NASM", lang: "nasm" },
-	{ name: "NEON", lang: "neon" },
-	{ name: "nginx", lang: "nginx" },
-	{ name: "Nim", lang: "nim" },
-	{ name: "Nix", lang: "nix" },
-	{ name: "NSIS", lang: "nsis" },
-	{ name: "Objective-C", lang: "objectivec" },
-	{ name: "OCaml", lang: "ocaml" },
-	{ name: "OpenCL", lang: "opencl" },
-	{ name: "Oz", lang: "oz" },
-	{ name: "PARI/GP", lang: "parigp" },
-	{ name: "Parser", lang: "parser" },
-	{ name: "Pascal", lang: "pascal" },
-	{ name: "Pascaligo", lang: "pascaligo" },
-	{ name: "PC-Axis", lang: "pcaxis" },
-	{ name: "PeopleCode", lang: "peoplecode" },
-	{ name: "Perl", lang: "perl" },
-	{ name: "PHP", lang: "php" },
-	{ name: "PHPDoc", lang: "phpdoc" },
-	{ name: "PHP Extras", lang: "php-extras" },
-	{ name: "PL/SQL", lang: "plsql" },
-	{ name: "PowerQuery", lang: "powerquery" },
-	{ name: "PowerShell", lang: "powershell" },
-	{ name: "Processing", lang: "processing" },
-	{ name: "Prolog", lang: "prolog" },
-	{ name: "PromQL", lang: "promql" },
-	{ name: ".properties", lang: "properties" },
-	{ name: "Protocol Buffers", lang: "protobuf" },
-	{ name: "Pug", lang: "pug" },
-	{ name: "Puppet", lang: "puppet" },
-	{ name: "Pure", lang: "pure" },
-	{ name: "PureBasic", lang: "purebasic" },
-	{ name: "PureScript", lang: "purescript" },
-	{ name: "Python", lang: "python" },
-	{ name: "Q (kdb+ database)", lang: "q" },
-	{ name: "QML", lang: "qml" },
-	{ name: "Qore", lang: "qore" },
-	{ name: "R", lang: "r" },
-	{ name: "Racket", lang: "racket" },
-	{ name: "React JSX", lang: "jsx" },
-	{ name: "React TSX", lang: "tsx" },
-	{ name: "Reason", lang: "reason" },
-	{ name: "Regex", lang: "regex" },
-	{ name: "Ren'py", lang: "renpy" },
-	{ name: "reST (reStructuredText)", lang: "rest" },
-	{ name: "Rip", lang: "rip" },
-	{ name: "Roboconf", lang: "roboconf" },
-	{ name: "Robot Framework", lang: "robotframework" },
-	{ name: "Ruby", lang: "ruby" },
-	{ name: "Rust", lang: "rust" },
-	{ name: "SAS", lang: "sas" },
-	{ name: "Sass (Sass)", lang: "sass" },
-	{ name: "Sass (Scss)", lang: "scss" },
-	{ name: "Scala", lang: "scala" },
-	{ name: "Scheme", lang: "scheme" },
-	{ name: "Shell session", lang: "shell-session" },
-	{ name: "Smali", lang: "smali" },
-	{ name: "Smalltalk", lang: "smalltalk" },
-	{ name: "Smarty", lang: "smarty" },
-	{ name: "SML", lang: "sml" },
-	{ name: "Solidity (Ethereum)", lang: "solidity" },
-	{ name: "Solution file", lang: "solution-file" },
-	{ name: "Soy (Closure Template)", lang: "soy" },
-	{ name: "SPARQL", lang: "sparql" },
-	{ name: "Splunk SPL", lang: "splunk-spl" },
-	{ name: "SQF: Status Quo Function (Arma 3)", lang: "sqf" },
-	{ name: "SQL", lang: "sql" },
-	{ name: "Stan", lang: "stan" },
-	{ name: "Structured Text (IEC 61131-3)", lang: "iecst" },
-	{ name: "Stylus", lang: "stylus" },
-	{ name: "Swift", lang: "swift" },
-	{ name: "T4 templating", lang: "t4-templating" },
-	{ name: "T4 Text Templates (C#)", lang: "t4-cs" },
-	{ name: "T4 Text Templates (VB)", lang: "t4-vb" },
-	{ name: "TAP", lang: "tap" },
-	{ name: "Tcl", lang: "tcl" },
-	{ name: "Template Toolkit 2", lang: "tt2" },
-	{ name: "Textile", lang: "textile" },
-	{ name: "TOML", lang: "toml" },
-	{ name: "Turtle", lang: "turtle" },
-	{ name: "Twig", lang: "twig" },
-	{ name: "TypeScript", lang: "typescript" },
-	{ name: "TypoScript", lang: "typoscript" },
-	{ name: "UnrealScript", lang: "unrealscript" },
-	{ name: "Vala", lang: "vala" },
-	{ name: "VB.Net", lang: "vbnet" },
-	{ name: "Velocity", lang: "velocity" },
-	{ name: "Verilog", lang: "verilog" },
-	{ name: "VHDL", lang: "vhdl" },
-	{ name: "vim", lang: "vim" },
-	{ name: "Visual Basic", lang: "visual-basic" },
-	{ name: "WarpScript", lang: "warpscript" },
-	{ name: "WebAssembly", lang: "wasm" },
-	{ name: "Wiki markup", lang: "wiki" },
-	{ name: "Xeora", lang: "xeora" },
-	{ name: "XML doc (.net)", lang: "xml-doc" },
-	{ name: "Xojo (REALbasic)", lang: "xojo" },
-	{ name: "XQuery", lang: "xquery" },
-	{ name: "YAML", lang: "yaml" },
-	{ name: "YANG", lang: "yang" },
-	{ name: "Zig", lang: "zig" },
-];
+export function isPrismLanguage(x: string): x is PrismLanguage {
+	return x in languages;
+}
+
+export const languages: Record<PrismLanguage, Language> = {
+	none: {
+		name: "Plain Text",
+		lang: "none",
+	},
+	markup: {
+		name: "Markup",
+		lang: "markup",
+	},
+	css: {
+		name: "CSS",
+		lang: "css",
+	},
+	clike: {
+		name: "C-like",
+		lang: "clike",
+	},
+	javascript: {
+		name: "JavaScript",
+		lang: "javascript",
+	},
+	abap: {
+		name: "ABAP",
+		lang: "abap",
+	},
+	abnf: {
+		name: "ABNF",
+		lang: "abnf",
+	},
+	actionscript: {
+		name: "ActionScript",
+		lang: "actionscript",
+	},
+	ada: {
+		name: "Ada",
+		lang: "ada",
+	},
+	agda: {
+		name: "Agda",
+		lang: "agda",
+	},
+	al: {
+		name: "AL",
+		lang: "al",
+	},
+	antlr4: {
+		name: "ANTLR4",
+		lang: "antlr4",
+	},
+	apacheconf: {
+		name: "Apache Configuration",
+		lang: "apacheconf",
+	},
+	apex: {
+		name: "Apex",
+		lang: "apex",
+	},
+	apl: {
+		name: "APL",
+		lang: "apl",
+	},
+	applescript: {
+		name: "AppleScript",
+		lang: "applescript",
+	},
+	aql: {
+		name: "AQL",
+		lang: "aql",
+	},
+	arduino: {
+		name: "Arduino",
+		lang: "arduino",
+	},
+	arff: {
+		name: "ARFF",
+		lang: "arff",
+	},
+	asciidoc: {
+		name: "AsciiDoc",
+		lang: "asciidoc",
+	},
+	aspnet: {
+		name: "ASP.NET (C#)",
+		lang: "aspnet",
+	},
+	asm6502: {
+		name: "6502 Assembly",
+		lang: "asm6502",
+	},
+	autohotkey: {
+		name: "AutoHotkey",
+		lang: "autohotkey",
+	},
+	autoit: {
+		name: "AutoIt",
+		lang: "autoit",
+	},
+	bash: {
+		name: "Bash",
+		lang: "bash",
+	},
+	basic: {
+		name: "BASIC",
+		lang: "basic",
+	},
+	batch: {
+		name: "Batch",
+		lang: "batch",
+	},
+	bbcode: {
+		name: "BBcode",
+		lang: "bbcode",
+	},
+	birb: {
+		name: "Birb",
+		lang: "birb",
+	},
+	bison: {
+		name: "Bison",
+		lang: "bison",
+	},
+	bnf: {
+		name: "BNF",
+		lang: "bnf",
+	},
+	brainfuck: {
+		name: "Brainfuck",
+		lang: "brainfuck",
+	},
+	brightscript: {
+		name: "BrightScript",
+		lang: "brightscript",
+	},
+	bro: {
+		name: "Bro",
+		lang: "bro",
+	},
+	bsl: {
+		name: "BSL (1C:Enterprise)",
+		lang: "bsl",
+	},
+	c: {
+		name: "C",
+		lang: "c",
+	},
+	csharp: {
+		name: "C#",
+		lang: "csharp",
+	},
+	cpp: {
+		name: "C++",
+		lang: "cpp",
+	},
+	cil: {
+		name: "CIL",
+		lang: "cil",
+	},
+	clojure: {
+		name: "Clojure",
+		lang: "clojure",
+	},
+	cmake: {
+		name: "CMake",
+		lang: "cmake",
+	},
+	coffeescript: {
+		name: "CoffeeScript",
+		lang: "coffeescript",
+	},
+	concurnas: {
+		name: "Concurnas",
+		lang: "concurnas",
+	},
+	csp: {
+		name: "Content-Security-Policy",
+		lang: "csp",
+	},
+	crystal: {
+		name: "Crystal",
+		lang: "crystal",
+	},
+	"css-extras": {
+		name: "CSS Extras",
+		lang: "css-extras",
+	},
+	cypher: {
+		name: "Cypher",
+		lang: "cypher",
+	},
+	d: {
+		name: "D",
+		lang: "d",
+	},
+	dart: {
+		name: "Dart",
+		lang: "dart",
+	},
+	dataweave: {
+		name: "DataWeave",
+		lang: "dataweave",
+	},
+	dax: {
+		name: "DAX",
+		lang: "dax",
+	},
+	dhall: {
+		name: "Dhall",
+		lang: "dhall",
+	},
+	diff: {
+		name: "Diff",
+		lang: "diff",
+	},
+	django: {
+		name: "Django/Jinja2",
+		lang: "django",
+	},
+	"dns-zone-file": {
+		name: "DNS zone file",
+		lang: "dns-zone-file",
+	},
+	docker: {
+		name: "Docker",
+		lang: "docker",
+	},
+	ebnf: {
+		name: "EBNF",
+		lang: "ebnf",
+	},
+	editorconfig: {
+		name: "EditorConfig",
+		lang: "editorconfig",
+	},
+	eiffel: {
+		name: "Eiffel",
+		lang: "eiffel",
+	},
+	ejs: {
+		name: "EJS",
+		lang: "ejs",
+	},
+	elixir: {
+		name: "Elixir",
+		lang: "elixir",
+	},
+	elm: {
+		name: "Elm",
+		lang: "elm",
+	},
+	etlua: {
+		name: "Embedded Lua templating",
+		lang: "etlua",
+	},
+	erb: {
+		name: "ERB",
+		lang: "erb",
+	},
+	erlang: {
+		name: "Erlang",
+		lang: "erlang",
+	},
+	"excel-formula": {
+		name: "Excel Formula",
+		lang: "excel-formula",
+	},
+	fsharp: {
+		name: "F#",
+		lang: "fsharp",
+	},
+	factor: {
+		name: "Factor",
+		lang: "factor",
+	},
+	"firestore-security-rules": {
+		name: "Firestore security rules",
+		lang: "firestore-security-rules",
+	},
+	flow: {
+		name: "Flow",
+		lang: "flow",
+	},
+	fortran: {
+		name: "Fortran",
+		lang: "fortran",
+	},
+	ftl: {
+		name: "FreeMarker Template Language",
+		lang: "ftl",
+	},
+	gml: {
+		name: "GameMaker Language",
+		lang: "gml",
+	},
+	gcode: {
+		name: "G-code",
+		lang: "gcode",
+	},
+	gdscript: {
+		name: "GDScript",
+		lang: "gdscript",
+	},
+	gedcom: {
+		name: "GEDCOM",
+		lang: "gedcom",
+	},
+	gherkin: {
+		name: "Gherkin",
+		lang: "gherkin",
+	},
+	git: {
+		name: "Git",
+		lang: "git",
+	},
+	glsl: {
+		name: "GLSL",
+		lang: "glsl",
+	},
+	go: {
+		name: "Go",
+		lang: "go",
+	},
+	graphql: {
+		name: "GraphQL",
+		lang: "graphql",
+	},
+	groovy: {
+		name: "Groovy",
+		lang: "groovy",
+	},
+	haml: {
+		name: "Haml",
+		lang: "haml",
+	},
+	handlebars: {
+		name: "Handlebars",
+		lang: "handlebars",
+	},
+	haskell: {
+		name: "Haskell",
+		lang: "haskell",
+	},
+	haxe: {
+		name: "Haxe",
+		lang: "haxe",
+	},
+	hcl: {
+		name: "HCL",
+		lang: "hcl",
+	},
+	hlsl: {
+		name: "HLSL",
+		lang: "hlsl",
+	},
+	http: {
+		name: "HTTP",
+		lang: "http",
+	},
+	hpkp: {
+		name: "HTTP Public-Key-Pins",
+		lang: "hpkp",
+	},
+	hsts: {
+		name: "HTTP Strict-Transport-Security",
+		lang: "hsts",
+	},
+	ichigojam: {
+		name: "IchigoJam",
+		lang: "ichigojam",
+	},
+	icon: {
+		name: "Icon",
+		lang: "icon",
+	},
+	ignore: {
+		name: ".ignore",
+		lang: "ignore",
+	},
+	inform7: {
+		name: "Inform 7",
+		lang: "inform7",
+	},
+	ini: {
+		name: "Ini",
+		lang: "ini",
+	},
+	io: {
+		name: "Io",
+		lang: "io",
+	},
+	j: {
+		name: "J",
+		lang: "j",
+	},
+	java: {
+		name: "Java",
+		lang: "java",
+	},
+	javadoc: {
+		name: "JavaDoc",
+		lang: "javadoc",
+	},
+	javadoclike: {
+		name: "JavaDoc-like",
+		lang: "javadoclike",
+	},
+	javastacktrace: {
+		name: "Java stack trace",
+		lang: "javastacktrace",
+	},
+	jolie: {
+		name: "Jolie",
+		lang: "jolie",
+	},
+	jq: {
+		name: "JQ",
+		lang: "jq",
+	},
+	jsdoc: {
+		name: "JSDoc",
+		lang: "jsdoc",
+	},
+	"js-extras": {
+		name: "JS Extras",
+		lang: "js-extras",
+	},
+	json: {
+		name: "JSON",
+		lang: "json",
+	},
+	json5: {
+		name: "JSON5",
+		lang: "json5",
+	},
+	jsonp: {
+		name: "JSONP",
+		lang: "jsonp",
+	},
+	jsstacktrace: {
+		name: "JS stack trace",
+		lang: "jsstacktrace",
+	},
+	"js-templates": {
+		name: "JS Templates",
+		lang: "js-templates",
+	},
+	julia: {
+		name: "Julia",
+		lang: "julia",
+	},
+	keyman: {
+		name: "Keyman",
+		lang: "keyman",
+	},
+	kotlin: {
+		name: "Kotlin",
+		lang: "kotlin",
+	},
+	latex: {
+		name: "LaTeX",
+		lang: "latex",
+	},
+	latte: {
+		name: "Latte",
+		lang: "latte",
+	},
+	less: {
+		name: "Less",
+		lang: "less",
+	},
+	lilypond: {
+		name: "LilyPond",
+		lang: "lilypond",
+	},
+	liquid: {
+		name: "Liquid",
+		lang: "liquid",
+	},
+	lisp: {
+		name: "Lisp",
+		lang: "lisp",
+	},
+	livescript: {
+		name: "LiveScript",
+		lang: "livescript",
+	},
+	llvm: {
+		name: "LLVM IR",
+		lang: "llvm",
+	},
+	lolcode: {
+		name: "LOLCODE",
+		lang: "lolcode",
+	},
+	lua: {
+		name: "Lua",
+		lang: "lua",
+	},
+	makefile: {
+		name: "Makefile",
+		lang: "makefile",
+	},
+	markdown: {
+		name: "Markdown",
+		lang: "markdown",
+	},
+	"markup-templating": {
+		name: "Markup templating",
+		lang: "markup-templating",
+	},
+	matlab: {
+		name: "MATLAB",
+		lang: "matlab",
+	},
+	mel: {
+		name: "MEL",
+		lang: "mel",
+	},
+	mizar: {
+		name: "Mizar",
+		lang: "mizar",
+	},
+	mongodb: {
+		name: "MongoDB",
+		lang: "mongodb",
+	},
+	monkey: {
+		name: "Monkey",
+		lang: "monkey",
+	},
+	moonscript: {
+		name: "MoonScript",
+		lang: "moonscript",
+	},
+	n1ql: {
+		name: "N1QL",
+		lang: "n1ql",
+	},
+	n4js: {
+		name: "N4JS",
+		lang: "n4js",
+	},
+	"nand2tetris-hdl": {
+		name: "Nand To Tetris HDL",
+		lang: "nand2tetris-hdl",
+	},
+	naniscript: {
+		name: "Naninovel Script",
+		lang: "naniscript",
+	},
+	nasm: {
+		name: "NASM",
+		lang: "nasm",
+	},
+	neon: {
+		name: "NEON",
+		lang: "neon",
+	},
+	nginx: {
+		name: "nginx",
+		lang: "nginx",
+	},
+	nim: {
+		name: "Nim",
+		lang: "nim",
+	},
+	nix: {
+		name: "Nix",
+		lang: "nix",
+	},
+	nsis: {
+		name: "NSIS",
+		lang: "nsis",
+	},
+	objectivec: {
+		name: "Objective-C",
+		lang: "objectivec",
+	},
+	ocaml: {
+		name: "OCaml",
+		lang: "ocaml",
+	},
+	opencl: {
+		name: "OpenCL",
+		lang: "opencl",
+	},
+	oz: {
+		name: "Oz",
+		lang: "oz",
+	},
+	parigp: {
+		name: "PARI/GP",
+		lang: "parigp",
+	},
+	parser: {
+		name: "Parser",
+		lang: "parser",
+	},
+	pascal: {
+		name: "Pascal",
+		lang: "pascal",
+	},
+	pascaligo: {
+		name: "Pascaligo",
+		lang: "pascaligo",
+	},
+	pcaxis: {
+		name: "PC-Axis",
+		lang: "pcaxis",
+	},
+	peoplecode: {
+		name: "PeopleCode",
+		lang: "peoplecode",
+	},
+	perl: {
+		name: "Perl",
+		lang: "perl",
+	},
+	php: {
+		name: "PHP",
+		lang: "php",
+	},
+	phpdoc: {
+		name: "PHPDoc",
+		lang: "phpdoc",
+	},
+	"php-extras": {
+		name: "PHP Extras",
+		lang: "php-extras",
+	},
+	plsql: {
+		name: "PL/SQL",
+		lang: "plsql",
+	},
+	powerquery: {
+		name: "PowerQuery",
+		lang: "powerquery",
+	},
+	powershell: {
+		name: "PowerShell",
+		lang: "powershell",
+	},
+	processing: {
+		name: "Processing",
+		lang: "processing",
+	},
+	prolog: {
+		name: "Prolog",
+		lang: "prolog",
+	},
+	promql: {
+		name: "PromQL",
+		lang: "promql",
+	},
+	properties: {
+		name: ".properties",
+		lang: "properties",
+	},
+	protobuf: {
+		name: "Protocol Buffers",
+		lang: "protobuf",
+	},
+	pug: {
+		name: "Pug",
+		lang: "pug",
+	},
+	puppet: {
+		name: "Puppet",
+		lang: "puppet",
+	},
+	pure: {
+		name: "Pure",
+		lang: "pure",
+	},
+	purebasic: {
+		name: "PureBasic",
+		lang: "purebasic",
+	},
+	purescript: {
+		name: "PureScript",
+		lang: "purescript",
+	},
+	python: {
+		name: "Python",
+		lang: "python",
+	},
+	q: {
+		name: "Q (kdb+ database)",
+		lang: "q",
+	},
+	qml: {
+		name: "QML",
+		lang: "qml",
+	},
+	qore: {
+		name: "Qore",
+		lang: "qore",
+	},
+	r: {
+		name: "R",
+		lang: "r",
+	},
+	racket: {
+		name: "Racket",
+		lang: "racket",
+	},
+	jsx: {
+		name: "React JSX",
+		lang: "jsx",
+	},
+	tsx: {
+		name: "React TSX",
+		lang: "tsx",
+	},
+	reason: {
+		name: "Reason",
+		lang: "reason",
+	},
+	regex: {
+		name: "Regex",
+		lang: "regex",
+	},
+	renpy: {
+		name: "Ren'py",
+		lang: "renpy",
+	},
+	rest: {
+		name: "reST (reStructuredText)",
+		lang: "rest",
+	},
+	rip: {
+		name: "Rip",
+		lang: "rip",
+	},
+	roboconf: {
+		name: "Roboconf",
+		lang: "roboconf",
+	},
+	robotframework: {
+		name: "Robot Framework",
+		lang: "robotframework",
+	},
+	ruby: {
+		name: "Ruby",
+		lang: "ruby",
+	},
+	rust: {
+		name: "Rust",
+		lang: "rust",
+	},
+	sas: {
+		name: "SAS",
+		lang: "sas",
+	},
+	sass: {
+		name: "Sass (Sass)",
+		lang: "sass",
+	},
+	scss: {
+		name: "Sass (Scss)",
+		lang: "scss",
+	},
+	scala: {
+		name: "Scala",
+		lang: "scala",
+	},
+	scheme: {
+		name: "Scheme",
+		lang: "scheme",
+	},
+	"shell-session": {
+		name: "Shell session",
+		lang: "shell-session",
+	},
+	smali: {
+		name: "Smali",
+		lang: "smali",
+	},
+	smalltalk: {
+		name: "Smalltalk",
+		lang: "smalltalk",
+	},
+	smarty: {
+		name: "Smarty",
+		lang: "smarty",
+	},
+	sml: {
+		name: "SML",
+		lang: "sml",
+	},
+	solidity: {
+		name: "Solidity (Ethereum)",
+		lang: "solidity",
+	},
+	"solution-file": {
+		name: "Solution file",
+		lang: "solution-file",
+	},
+	soy: {
+		name: "Soy (Closure Template)",
+		lang: "soy",
+	},
+	sparql: {
+		name: "SPARQL",
+		lang: "sparql",
+	},
+	"splunk-spl": {
+		name: "Splunk SPL",
+		lang: "splunk-spl",
+	},
+	sqf: {
+		name: "SQF: Status Quo Function (Arma 3)",
+		lang: "sqf",
+	},
+	sql: {
+		name: "SQL",
+		lang: "sql",
+	},
+	stan: {
+		name: "Stan",
+		lang: "stan",
+	},
+	iecst: {
+		name: "Structured Text (IEC 61131-3)",
+		lang: "iecst",
+	},
+	stylus: {
+		name: "Stylus",
+		lang: "stylus",
+	},
+	swift: {
+		name: "Swift",
+		lang: "swift",
+	},
+	"t4-templating": {
+		name: "T4 templating",
+		lang: "t4-templating",
+	},
+	"t4-cs": {
+		name: "T4 Text Templates (C#)",
+		lang: "t4-cs",
+	},
+	"t4-vb": {
+		name: "T4 Text Templates (VB)",
+		lang: "t4-vb",
+	},
+	tap: {
+		name: "TAP",
+		lang: "tap",
+	},
+	tcl: {
+		name: "Tcl",
+		lang: "tcl",
+	},
+	tt2: {
+		name: "Template Toolkit 2",
+		lang: "tt2",
+	},
+	textile: {
+		name: "Textile",
+		lang: "textile",
+	},
+	toml: {
+		name: "TOML",
+		lang: "toml",
+	},
+	turtle: {
+		name: "Turtle",
+		lang: "turtle",
+	},
+	twig: {
+		name: "Twig",
+		lang: "twig",
+	},
+	typescript: {
+		name: "TypeScript",
+		lang: "typescript",
+	},
+	typoscript: {
+		name: "TypoScript",
+		lang: "typoscript",
+	},
+	unrealscript: {
+		name: "UnrealScript",
+		lang: "unrealscript",
+	},
+	vala: {
+		name: "Vala",
+		lang: "vala",
+	},
+	vbnet: {
+		name: "VB.Net",
+		lang: "vbnet",
+	},
+	velocity: {
+		name: "Velocity",
+		lang: "velocity",
+	},
+	verilog: {
+		name: "Verilog",
+		lang: "verilog",
+	},
+	vhdl: {
+		name: "VHDL",
+		lang: "vhdl",
+	},
+	vim: {
+		name: "vim",
+		lang: "vim",
+	},
+	"visual-basic": {
+		name: "Visual Basic",
+		lang: "visual-basic",
+	},
+	warpscript: {
+		name: "WarpScript",
+		lang: "warpscript",
+	},
+	wasm: {
+		name: "WebAssembly",
+		lang: "wasm",
+	},
+	wiki: {
+		name: "Wiki markup",
+		lang: "wiki",
+	},
+	xeora: {
+		name: "Xeora",
+		lang: "xeora",
+	},
+	"xml-doc": {
+		name: "XML doc (.net)",
+		lang: "xml-doc",
+	},
+	xojo: {
+		name: "Xojo (REALbasic)",
+		lang: "xojo",
+	},
+	xquery: {
+		name: "XQuery",
+		lang: "xquery",
+	},
+	yaml: {
+		name: "YAML",
+		lang: "yaml",
+	},
+	yang: {
+		name: "YANG",
+		lang: "yang",
+	},
+	zig: {
+		name: "Zig",
+		lang: "zig",
+	},
+};

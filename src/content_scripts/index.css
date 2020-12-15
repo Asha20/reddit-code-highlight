@@ -23,6 +23,12 @@
 	padding: 2px 4px;
 	margin: 0;
 	margin-left: 10px;
+
+	white-space: nowrap;
+}
+
+.rch-suggestion--active {
+	font-weight: bold;
 }
 
 /* Undoes some styles from old.reddit.com */

@@ -5,10 +5,12 @@ import {
 	PrismLanguage,
 	Language,
 } from "./languages";
+import { getDefaultLanguage, getSuggestions } from "./suggestions";
 
 const RCH = {
 	class: {
 		suggestion: "rch-suggestion",
+		suggestionActive: "rch-suggestion--active",
 		suggestionList: "rch-suggestion-list",
 		toolbar: "rch-toolbar",
 		dropdown: "rch-dropdown",
@@ -28,32 +30,16 @@ function assert<T>(x: T, message: string): asserts x {
 }
 
 function sortLanguages(a: Language, b: Language) {
-	if (a.lang === "none") return -1;
-	if (b.lang === "none") return 1;
+	if (a === allLanguages.none) return -1;
+	if (b === allLanguages.none) return 1;
 	return a.name.localeCompare(b.name);
 }
 
-const sortedLanguages = allLanguages.slice().sort(sortLanguages);
-
-function getSubreddit() {
-	const match = location.pathname.match(/^\/r\/(\w+)/);
-	return match ? match[1] : null;
-}
-
-function getSuggestions(subreddit: string | null): Language[] {
-	if (!subreddit) {
-		return [];
-	}
-
-	const languageNone = allLanguages.find(x => x.lang === "none");
-	const languageJS = allLanguages.find(x => x.lang === "javascript");
-	assert(languageNone, "none language does not exist.");
-	assert(languageJS, "javascript language does not exist.");
-	return [languageNone, languageJS];
-}
+const sortedLanguages = Object.values(allLanguages).slice().sort(sortLanguages);
 
 function createSuggestionButtons(
 	suggestions: Language[],
+	activeLang: PrismLanguage,
 	onClick: (lang: PrismLanguage) => void,
 ) {
 	const buttons = suggestions.map(x => {
@@ -64,6 +50,15 @@ function createSuggestionButtons(
 
 		return button;
 	});
+
+	const setActiveButton = (lang: PrismLanguage) => {
+		for (const button of buttons) {
+			button.classList.toggle(
+				RCH.class.suggestionActive,
+				button.dataset.value === lang,
+			);
+		}
+	};
 
 	const buttonWrapper = document.createElement("div");
 	buttonWrapper.classList.add(RCH.class.suggestionList);
@@ -79,10 +74,13 @@ function createSuggestionButtons(
 			e.preventDefault();
 			const lang = target.dataset.value as PrismLanguage | undefined;
 			assert(lang, "Button does not have a language.");
+
+			setActiveButton(lang);
 			onClick(lang);
 		}
 	});
 
+	setActiveButton(activeLang);
 	return buttonWrapper;
 }
 
@@ -96,11 +94,12 @@ class CodeBlock {
 		this.pre = pre;
 		this.code = code;
 		this.lang =
-			(this.code.getAttribute(RCH.attr.language) as PrismLanguage) ?? "none";
+			(this.code.getAttribute(RCH.attr.language) as PrismLanguage | null) ??
+			"none";
 		this.toolbar = null;
 	}
 
-	initToolbar(suggestions: Language[]) {
+	initToolbar(suggestions: Language[], initialLang: PrismLanguage) {
 		const dropdown = new Dropdown({
 			items: sortedLanguages,
 			display: x => x.name,
@@ -108,11 +107,17 @@ class CodeBlock {
 		});
 
 		dropdown.element.classList.add(RCH.class.dropdown);
+		dropdown.select(x => x.lang === initialLang);
+		this.lang = initialLang;
 
-		const suggestionButtons = createSuggestionButtons(suggestions, lang => {
-			this.rehighlight(lang);
-			dropdown.select(x => x.lang === lang);
-		});
+		const suggestionButtons = createSuggestionButtons(
+			suggestions,
+			initialLang,
+			lang => {
+				this.rehighlight(lang);
+				dropdown.select(x => x.lang === lang);
+			},
+		);
 
 		const toolbar = document.createElement("div");
 		toolbar.classList.add(RCH.class.toolbar);
@@ -203,9 +208,7 @@ function getCodeBlocks() {
 function setup() {
 	for (const block of getCodeBlocks()) {
 		if (!block.visited) {
-			const subreddit = getSubreddit();
-			const suggestions = getSuggestions(subreddit);
-			block.initToolbar(suggestions);
+			block.initToolbar(getSuggestions(), getDefaultLanguage().lang);
 			block.highlight();
 			block.visited = true;
 		}
