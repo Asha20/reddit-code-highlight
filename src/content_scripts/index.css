@@ -1,13 +1,41 @@
-pre.rch-visited {
-	display: block !important;
+.rch-toolbar {
+	display: flex;
+	justify-content: left;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.rch-dropdown {
+	height: 3em;
+	width: 15em;
+}
+
+.rch-suggestion-list {
+	display: flex;
+	height: 3em;
+}
+
+.rch-suggestion {
+	display: block;
+	border: none;
+	background: none;
+
+	padding: 2px 4px;
+	margin: 0;
+	margin-left: 10px;
 }
 
 /* Undoes some styles from old.reddit.com */
-.arrow {
+.line-numbers .arrow {
 	display: inline !important;
 	cursor: unset !important;
 }
 
-.comment {
+.line-numbers .comment {
 	margin-left: 0 !important;
+}
+
+.usertext button.rch-suggestion {
+	margin: 0 !important;
+	margin-left: 10px !important;
 }

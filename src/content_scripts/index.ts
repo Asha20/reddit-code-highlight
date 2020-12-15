@@ -6,6 +6,21 @@ import {
 	Language,
 } from "./languages";
 
+const RCH = {
+	class: {
+		suggestion: "rch-suggestion",
+		suggestionList: "rch-suggestion-list",
+		toolbar: "rch-toolbar",
+		dropdown: "rch-dropdown",
+	},
+	attr: {
+		language: "data-rch-language",
+		visited: "data-rch-visited",
+	},
+
+	refreshDelay: 2000,
+};
+
 function assert<T>(x: T, message: string): asserts x {
 	if (!x) {
 		throw new Error(message);
@@ -43,7 +58,7 @@ function createSuggestionButtons(
 ) {
 	const buttons = suggestions.map(x => {
 		const button = document.createElement("button");
-		button.classList.add("rch-suggestion");
+		button.classList.add(RCH.class.suggestion);
 		button.dataset.value = x.lang;
 		button.textContent = x.name;
 
@@ -51,6 +66,7 @@ function createSuggestionButtons(
 	});
 
 	const buttonWrapper = document.createElement("div");
+	buttonWrapper.classList.add(RCH.class.suggestionList);
 	buttons.forEach(x => buttonWrapper.appendChild(x));
 
 	buttonWrapper.addEventListener("click", e => {
@@ -59,7 +75,7 @@ function createSuggestionButtons(
 		}
 
 		const target = e.target as HTMLElement;
-		if (target.matches("button.rch-suggestion")) {
+		if (target.matches(`.${RCH.class.suggestion}`)) {
 			e.preventDefault();
 			const lang = target.dataset.value as PrismLanguage | undefined;
 			assert(lang, "Button does not have a language.");
@@ -74,12 +90,14 @@ class CodeBlock {
 	pre: HTMLElement;
 	code: HTMLElement;
 	private lang: PrismLanguage;
+	private toolbar: HTMLDivElement | null;
 
 	constructor(pre: HTMLElement, code: HTMLElement) {
 		this.pre = pre;
 		this.code = code;
 		this.lang =
-			(this.code.getAttribute("data-rch-language") as PrismLanguage) ?? "none";
+			(this.code.getAttribute(RCH.attr.language) as PrismLanguage) ?? "none";
+		this.toolbar = null;
 	}
 
 	initToolbar(suggestions: Language[]) {
@@ -89,27 +107,31 @@ class CodeBlock {
 			onChange: x => this.rehighlight(x.lang),
 		});
 
+		dropdown.element.classList.add(RCH.class.dropdown);
+
 		const suggestionButtons = createSuggestionButtons(suggestions, lang => {
 			this.rehighlight(lang);
 			dropdown.select(x => x.lang === lang);
 		});
 
 		const toolbar = document.createElement("div");
+		toolbar.classList.add(RCH.class.toolbar);
 		toolbar.appendChild(dropdown.element);
 		toolbar.appendChild(suggestionButtons);
+		this.toolbar = toolbar;
 
 		this.pre.insertAdjacentElement("beforebegin", toolbar);
 	}
 
 	get visited() {
-		return this.code.hasAttribute("data-rch-visited");
+		return this.code.hasAttribute(RCH.attr.visited);
 	}
 
 	set visited(value: boolean) {
 		if (value) {
-			this.code.setAttribute("data-rch-visited", "true");
+			this.code.setAttribute(RCH.attr.visited, "true");
 		} else {
-			this.code.removeAttribute("data-rch-visited");
+			this.code.removeAttribute(RCH.attr.visited);
 		}
 	}
 
@@ -121,7 +143,7 @@ class CodeBlock {
 		this.code.classList.remove("language-" + this.lang);
 		this.pre.classList.remove("language-" + this.lang);
 		this.code.classList.add("language-" + lang);
-		this.code.setAttribute("data-rch-language", lang);
+		this.code.setAttribute(RCH.attr.language, lang);
 		this.lang = lang;
 	}
 
@@ -148,6 +170,9 @@ class CodeBlock {
 			this.pre.style.display = "table";
 			this.pre.style.lineHeight = "1";
 			this.pre.style.width = "100%";
+			if (this.toolbar) {
+				this.toolbar.style.width = `${this.pre.offsetWidth}px`;
+			}
 		}
 	}
 
@@ -187,4 +212,8 @@ function setup() {
 	}
 }
 
-setInterval(setup, 2000);
+function main() {
+	setInterval(setup, RCH.refreshDelay);
+}
+
+main();
