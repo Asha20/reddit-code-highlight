@@ -52,7 +52,10 @@ module.exports = function (_, argv) {
 			}),
 
 			new CopyWebpackPlugin({
-				patterns: [{ from: "src/manifest.json", to: "manifest.json" }],
+				patterns: [
+					{ from: "src/manifest.json", to: "manifest.json" },
+					{ from: "src/vendor", to: "vendor" },
+				],
 			}),
 
 			new ForkTsCheckerWebpackPlugin({

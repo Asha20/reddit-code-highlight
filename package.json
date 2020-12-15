@@ -7,7 +7,7 @@
 		"build": "webpack --mode production",
 		"watch": "webpack --mode development --watch",
 		"prettier": "prettier --write",
-		"lint": "eslint --max-warnings=0 --fix src/ --ext .js,.ts"
+		"lint": "eslint --max-warnings=0 --fix"
 	},
 	"husky": {
 		"hooks": {
@@ -18,7 +18,7 @@
 		"src/**/*.{js,ts,json,css}": [
 			"npm run prettier"
 		],
-		"src/**/*.{js,ts}": [
+		"src/**/*.ts": [
 			"npm run lint"
 		]
 	},
@@ -32,6 +32,7 @@
 		"@babel/core": "^7.12.10",
 		"@babel/preset-env": "^7.12.10",
 		"@babel/preset-typescript": "^7.12.7",
+		"@types/prismjs": "^1.16.2",
 		"@typescript-eslint/eslint-plugin": "^4.10.0",
 		"@typescript-eslint/parser": "^4.10.0",
 		"babel-loader": "^8.2.2",
