@@ -1,6 +1,6 @@
 {
 	"name": "reddit-code-highlight",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "A web extension that applies syntax highlighting to code blocks on Reddit.",
 	"main": "index.js",
 	"scripts": {
