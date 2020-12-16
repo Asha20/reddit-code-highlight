@@ -56,6 +56,7 @@ module.exports = function (_, argv) {
 						from: "src/content_scripts/index.css",
 						to: "content_scripts/index.css",
 					},
+					{ from: "src/assets", to: "assets" },
 				],
 			}),
 

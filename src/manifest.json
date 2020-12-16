@@ -1,9 +1,13 @@
 {
 	"manifest_version": 2,
 	"name": "Reddit Code Highlight",
+	"description": "Applies syntax highlighting to code blocks on Reddit.",
 	"version": "0.0.0",
 
-	"description": "Applies syntax highlighting to code blocks on Reddit.",
+	"icons": {
+		"48": "assets/icon48.png",
+		"128": "assets/icon128.png"
+	},
 
 	"content_scripts": [
 		{
