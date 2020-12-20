@@ -2,7 +2,7 @@
 
 A web extension that applies syntax highlighting to code blocks on Reddit.
 
-- [Get it for Google Chrome](#)
+- [Get it for Google Chrome](https://chrome.google.com/webstore/detail/reddit-code-highlight/fdoibacmnleibimnnkmakjgpaoeckafa)
 - [Get it for Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/reddit-code-highlight/)
 
 ## What it does
